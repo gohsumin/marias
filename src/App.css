@@ -3,7 +3,12 @@
   justify-content: flex-start;
   width: 100%;
   min-height: 100vh;
-  background-color: beige;
+  /* background-color: beige; */
+
+  background-image: url('./assets/outside_view.jpg');
+  background-position: center;
+  height: 100vh;
+  aspect-ratio: 1.777;
 }
 
 div {
@@ -12,24 +17,47 @@ div {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
-.nav {
-  position: sticky;
+.top-grad {
+  position: fixed;
   top: 0px;
   left: 0px;
-  padding-bottom: 12px;
+  height: 100px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+  padding-top: 12px;
   background-image: linear-gradient(rgb(255, 213, 0), transparent);
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: "center";
+}
+
+.nav-link-group {
+  position: fixed;
+  z-index: 1;
+  top: 12px;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.nav-bodies {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 126px;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   padding: 3% 5% 3% 5%;
+  background-color: beige;
 }

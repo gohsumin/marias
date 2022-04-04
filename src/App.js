@@ -1,7 +1,8 @@
 import './App.css';
+import { animated, easings, useSpring } from '@react-spring/web'
 import Home from './views/Home';
-import { Link, Routes } from 'react-router-dom';
-import logo from './assets/logo.png';
+import { NavLink, Routes } from 'react-router-dom';
+import logo from './assets/logo.jpg';
 import Menu from './views/Menu';
 import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
@@ -9,69 +10,96 @@ import { Route } from 'react-router-dom';
 
 function App() {
 
-  const initialHeaderHeight = 250;
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [headerHeight, setHeaderHeight] = useState(initialHeaderHeight);
   const location = useLocation();
+  const [init, setInit] = useState(true);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    setInit(false);
   }, []);
 
-  {/* HEADER
-      -> GROWS when:
-        • scrolling above 25vh from '/'
-      -> IS BIGGER when:
-        • at '/' route and scroll y < 25vh
-      -> SHRINKS when:
-        • scrolling past 25vh from '/'
-      -> IS SMALLER when:
-        • scroll y > 25vh
-        • not at '/'
-      */}
-  useEffect(() => {
-    if (location.pathname === "") {
-      setHeaderHeight(initialHeaderHeight - Math.min(scrollPosition, 150));
+  const logoStyle = useSpring({
+    scale: init ? 0 : 1,
+    width: 100,
+    height: 100,
+    alignSelf: "center",
+    config: {
+      easing: easings.easeInOutExpo,
     }
-  }, [scrollPosition]);
+  });
 
-  const handleScroll = () => {
-    setScrollPosition(window.pageYOffset);
-  };
+  const navLinkStyle = useSpring({
+    scale: init ? 0 : 1,
+    config: {
+      easing: easings.easeInOutExpo,
+    }
+  })
+
+  const styleLinks = ({ isActive }) => ({
+    height: "max-content",
+    padding: "2px 6px 2px 6px",
+    marginTop: 6,
+    marginBottom: 6,
+    borderRadius: 4,
+    fontSize: 16,
+    ...(isActive ? {
+      backgroundColor: "brown",
+      color: "white",
+      fontWeight: "700",
+    } : {
+      backgroundColor: "white",
+      color: "#222",
+      fontWeight: "400",
+    })
+  })
 
   return (
     <div className="App">
 
-      {/* HEADER */}
-      <div className="nav" style={{
-        height: headerHeight,
-      }}>
-        <img src={logo} style={{
-          aspectRatio: 1,
-          height: "90%",
-        }} />
+      {/* HEADER GRADIENT + CENTER LOGO */}
+      <div className="top-grad">
+        <animated.div style={logoStyle}>
+          <NavLink to="/">
+            <img src={logo} style={{
+              height: "100%",
+              width: "100%",
+              borderRadius: "50%"
+            }} />
+          </NavLink>
+        </animated.div>
+      </div>
+
+      {/* NAV LINKS */}
+      <div className="nav-link-group">
+
+        <NavLink to="/menu" style={styleLinks}>
+          <animated.div style={navLinkStyle}>
+            Menu
+          </animated.div>
+        </NavLink>
+
+        <NavLink to="/address" style={styleLinks}>
+          <animated.div style={navLinkStyle}>
+            Address
+          </animated.div>
+        </NavLink>
+
+        <NavLink to="/hours" style={styleLinks}>
+          <animated.div style={navLinkStyle}>
+            Hours
+          </animated.div>
+        </NavLink>
       </div>
 
       {/* MARGIN TOP CONTAINER */}
-      <div style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        marginTop: headerHeight,
-        width: "100%",
-        flex: 1,
-      }} >
+      <div className="nav-bodies">
         <Routes>
-          <Route exact path="/" element={<Home/>}/>
-          <Route exact path="/menu" element={<Menu/>}/>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/menu" element={<Menu />} />
         </Routes>
       </div>
 
-      
+      {/* FOOTER MENU */}
+
 
     </div>
   );
