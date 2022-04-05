@@ -15,11 +15,11 @@ export default function Menu() {
   ]
 
   const pricedToppings = [
-    { item: "Extra rice", price: "$1.25" },
-    { item: "Extra beans", price: "$1.25" },
-    { item: "Guacamole", price: "$1.49" },
-    { item: "Queso", price: "$1.50" },
-    { item: "Avocado slices", price: "$0.99" }
+    { item: "Extra rice", price: "+$1.25" },
+    { item: "Extra beans", price: "+$1.25" },
+    { item: "Guacamole", price: "+$1.49" },
+    { item: "Queso", price: "+$1.50" },
+    { item: "Avocado slices", price: "+$0.99" }
   ]
 
   const menu = [

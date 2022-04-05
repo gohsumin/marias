@@ -26,21 +26,11 @@ a {
   z-index: 1;
 }
 
-.nav-link-group {
-  position: fixed;
-  z-index: 1;
-  top: 12px;
-  right: 2%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   margin: 3% 5% 3% 5%;
-  padding: 3% 5% 3% 5%;
+  /* padding: 3% 5% 3% 5%; */
   min-height: max-content;
   /* border: 1px solid white; */
 }
