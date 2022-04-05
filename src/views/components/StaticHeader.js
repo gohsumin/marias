@@ -15,12 +15,10 @@ export default function StaticHeader() {
     const location = useLocation();
 
     useEffect(() => {
-        console.log("[]");
         setInit(false);
     }, []);
 
     useEffect(() => {
-        console.log("[location]");
         if (locTog) {
             setLocTog(false);
         } else {

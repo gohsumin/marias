@@ -6,9 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: beige;
-  background-image: url('./assets/outside_view.jpg');
-  background-position: center;
-  aspect-ratio: 1.777;
 }
 
 code {

@@ -11,9 +11,9 @@ export default function NavGroup() {
     }, []);
 
     const navLinkStyle = useSpring({
-        scale: init ? 0 : 1,
+        opacity: init ? 0 : 1,
         config: {
-            easing: easings.easeInOutExpo,
+            easing: easings.easeInBounce,
         }
     })
 

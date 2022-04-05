@@ -1,6 +1,22 @@
+.top-grad {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 180px;
+  width: 100%;
+  padding-top: 24px;
+  /* border: 1px solid white; */
+  background-image: linear-gradient(beige, transparent);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: "center";
+}
+
 .top-logo {
     height: 100%;
     width: 100%;
     border-radius: 50%;
     box-shadow: 0px 0px 16px 0px rgba(80, 80, 80, 0.2);
+    z-index: inherit;
   }
