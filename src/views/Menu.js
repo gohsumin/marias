@@ -32,12 +32,12 @@ export default function Menu() {
         "choice of protein",
         "Toppings"],
       proteinOptions: [
-        { option: "Grilled chicken", price: "$9.25" },
-        { option: "Shredded chicken", price: "$9.25" },
-        { option: "Grilled beef", price: "$10.99" },
-        { option: "Shredded beef", price: "$9.25" },
-        { option: "Ground beef", price: "$8.25" },
-        { option: "Fajita mix", price: "$9.25" },
+        { option: "Grilled chicken", price: "$9.99" },
+        { option: "Shredded chicken", price: "$9.99" },
+        { option: "Grilled beef", price: "$11.49" },
+        { option: "Shredded beef", price: "$9.99" },
+        { option: "Ground beef", price: "$9.25" },
+        { option: "Fajita mix", price: "$9.99" },
       ],
     },
     {
@@ -47,12 +47,12 @@ export default function Menu() {
         "Choice of protein",
         "Toppings"],
       proteinOptions: [
-        { option: "Grilled chicken", price: "$9.25" },
-        { option: "Shredded chicken", price: "$9.25" },
-        { option: "Grilled beef", price: "$10.99" },
-        { option: "Shredded beef", price: "$9.25" },
-        { option: "Ground beef", price: "$8.25" },
-        { option: "Fajita mix", price: "$9.25" },
+        { option: "Grilled chicken", price: "$9.99" },
+        { option: "Shredded chicken", price: "$9.99" },
+        { option: "Grilled beef", price: "$11.49" },
+        { option: "Shredded beef", price: "$9.99" },
+        { option: "Ground beef", price: "$9.25" },
+        { option: "Fajita mix", price: "$9.99" },
       ],
     },
     {
@@ -63,33 +63,24 @@ export default function Menu() {
         "Choice of protein",
         "Toppings"],
       proteinOptions: [
-        { option: "Grilled chicken", price: "$9.25" },
-        { option: "Shredded chicken", price: "$9.25" },
-        { option: "Grilled beef", price: "$10.99" },
-        { option: "Shredded beef", price: "$9.25" },
-        { option: "Ground beef", price: "$8.25" },
-        { option: "Fajita mix", price: "$9.25" },
-        { option: "Ham and cheese", price: "$8.99" },
+        { option: "Grilled chicken", price: "$9.99" },
+        { option: "Shredded chicken", price: "$9.99" },
+        { option: "Grilled beef", price: "$11.49" },
+        { option: "Shredded beef", price: "$9.99" },
+        { option: "Ground beef", price: "$9.25" },
+        { option: "Fajita mix", price: "$9.99" },
+        { option: "Ham and cheese", price: "$9.50" },
       ]
     },
-  ]
-
-  const dinnerMenu = [
     {
-      item: "4 Mexican Enchiladas",
-      madeOf: [
-        "Chicken or cheese",
-        "Lettuce",
-        "Tomatoes",
-        "Onions",
-        "Avocados",
-        "Sour cream"
+      category: "Tortas with French Fries",
+      proteinOptions: [
+        { option: "Grilled chicken", price: "$9.99" },
+        { option: "Shredded chicken", price: "$9.99" },
+        { option: "Grilled beef", price: "$11.49" },
+        { option: "Shredded beef", price: "$9.99" },
       ]
     },
-    { item: "3 Empanadas" },
-    { item: "3 Tostadas with Beans" },
-    { item: "4 Flautas Flutes" },
-    { item: "Tortas Served with French Fries" },
   ]
 
   function Toppings() {
@@ -129,6 +120,28 @@ export default function Menu() {
     )
   }
 
+  function AllDayMenu() {
+    return (
+      <div>
+        {menu.map((menuItem, menuItemIndex) => {
+          return (
+            <div key={menuItemIndex} className="menu-item">
+              <div className="menu-item-decor"/>
+              <div className="menu-category">
+                {menuItem.category}
+              </div>
+              <div className="menu-description">
+                {menuItem.madeOf && menuItem.madeOf.map((madeOf, madeOfIndex) => {
+                  return <div key={madeOfIndex}>{madeOf}</div>
+                })}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
+
   return (
 
     <div className="container">
@@ -146,7 +159,7 @@ export default function Menu() {
         </div>
 
         <div className="menu">
-
+          <AllDayMenu />
         </div>
 
       </div>

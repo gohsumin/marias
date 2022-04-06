@@ -1,10 +1,20 @@
 .App {
-  position: relative;
-  justify-content: flex-start;
-  width: 100%;
-  /* min-height: 100vh; */
+  /* position: relative; */
+  margin: 0;
+  padding: 0;
+  /* align-self: center;
+  justify-self: center; */
+  /* justify-content: flex-start; */
+  width: 100vw;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  background: url('./assets/outside_view.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* border: 1px solid royalblue; */
+  /* aspect-ratio: 1.777; */
 }
 
 div {
@@ -21,29 +31,30 @@ a {
   bottom: 0px;
   left: 0px;
   height: 132px;
-  width: 100%;
+  width: 100vw;
   background-image: linear-gradient(transparent, beige);
   z-index: 1;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  margin: 3% 5% 3% 5%;
-  /* padding: 3% 5% 3% 5%; */
-  min-height: max-content;
-  /* border: 1px solid white; */
 }
 
 .routes-container {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: max-content;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  width: 100vw;
+  min-height: 100vh;
   padding-top: 180px;
-  background: url('./assets/outside_view.jpg') no-repeat;
-  background-size: cover;
-  background-position: center;
-  aspect-ratio: 1.777;
+}
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 3% 5% 3% 5%;
+  width: 100%;
+  min-height: max-content;
+  /* border: 1px solid green; */
 }
