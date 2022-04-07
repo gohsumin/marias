@@ -32,7 +32,7 @@ a {
   left: 0px;
   height: 132px;
   width: 100vw;
-  background-image: linear-gradient(transparent, beige);
+  background-image: linear-gradient(transparent, white);
   z-index: 1;
 }
 
@@ -60,5 +60,5 @@ a {
   bottom: 0px;
   overflow-y: scroll;
   min-height: max-content;
-  /* border: 1px solid green; */
+  /* border: 2px solid green; */
 }
