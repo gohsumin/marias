@@ -111,7 +111,7 @@ export default function Menu() {
                     })}
                   </div>}
               </div>
-              <div className="price">
+              <div className="topping-price">
                 {topping.price}
               </div>
             </div>)
@@ -125,8 +125,8 @@ export default function Menu() {
       <div>
         {menu.map((menuItem, menuItemIndex) => {
           return (
-            <div key={menuItemIndex} className="menu-item">
-              <div className="menu-item-decor" />
+            <div key={menuItemIndex} className="menu-category-group">
+              <div className="menu-category-decor" />
               <div className="menu-category">
                 {menuItem.category}
               </div>
@@ -140,12 +140,19 @@ export default function Menu() {
                   </div>
                 })}
               </div>}
-              {menuItem.proteinOptions.map((option, optionIndex) => {
-                return <div className="protein-group" key={optionIndex}>
-                  {option.option}
-                  {option.price}
-                </div>
-              })}
+              <div className="protein-container">
+                {menuItem.proteinOptions.map((option, optionIndex) => {
+                  return <div className="protein-group" key={optionIndex}>
+                    <div className="menu-item-left">
+                      <div className="menu-item-name">{option.option}</div>
+                      <div className="price">{option.price}</div>
+                    </div>
+                    <div>
+                      <img src={option.image ? option.image : require("../assets/temp-image.jpg")} className="menu-item-image" />
+                    </div>
+                  </div>
+                })}
+              </div>
             </div>
           )
         })}

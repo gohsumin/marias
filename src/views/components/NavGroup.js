@@ -20,19 +20,20 @@ export default function NavGroup() {
 
     const styleLinks = ({ isActive }) => ({
         height: "max-content",
-        padding: "4px 8px 4px 8px",
+        padding: "8px 26px 8px 12px",
         marginTop: 6,
         marginBottom: 6,
-        borderRadius: 4,
-        fontSize: 16,
+        borderTopLeftRadius: 6,
+        borderBottomLeftRadius: 6,
         backgroundColor: "white",
+        fontSize: 16,
+        color: "#222",
+        fontWeight: "400",
         boxShadow: "0px 0px 16px 0px rgba(80, 80, 80, 0.2)",
-        ...(isActive ? {
+        ...(isActive && {
             color: "#92b535",
-            fontWeight: "700",
-        } : {
-            color: "#222",
-            fontWeight: "400",
+            fontWeight: "800",
+            fontSize: 20,
         })
     })
 

@@ -1,12 +1,16 @@
 .menu-container {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     height: max-content;
+    margin-bottom: 40px;
 }
 
 .toppings {
+    position: sticky;
+    top: 2%;
     display: flex;
     flex-direction: column;
     width: max-content;
@@ -75,7 +79,7 @@
     /* border: 1px solid yellowgreen; */
 }
 
-.price {
+.topping-price {
     font-weight: 700;
     color: rgba(50, 20, 20, 0.55);
     margin-left: 8px;
@@ -89,19 +93,20 @@
     margin-left: 5%;
 }
 
-.menu-item {
+.menu-category-group {
     position: relative;
     margin-bottom: 32px;
     border: 4px double sienna;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.95);
     color: black;
     padding: 18px 24px 18px 24px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
-.menu-item-decor {
+.menu-category-decor {
     position: absolute;
     top: -12px;
     left: -18px;
@@ -136,7 +141,7 @@
     font-weight: 600;
     font-size: 14px;
     padding: 4px 6px 4px 6px;
-    border-radius: 4px;
+    border-radius: 30px;
     width: max-content;
     backdrop-filter: blur(2px) brightness(108%);
 }
@@ -145,6 +150,43 @@
     border-right: 1px solid #444;
     width: max-content
 }
+.protein-container {
+    display: grid;
+    gap: 20px 32px;
+    grid-auto-flow: dense;
+    grid-template-columns: auto auto;
+    margin-top: 20px;
+}
 .protein-group {
-    
+    padding: 12px;
+    /* background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 18px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 18px;
+}
+.menu-item-left {
+    margin-right: 14px;
+}
+.menu-item-name {
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-size: 22px;
+    color: sienna;
+    width: max-content;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+}
+.price {
+    font-weight: 300;
+    font-size: 20px;
+    color: gray;
+    /* color: rgba(50, 20, 20, 0.55); */
+}
+.menu-item-image {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    /* border-radius: 20px; */
 }
