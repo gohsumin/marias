@@ -1,6 +1,6 @@
 .nav-link-group {
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     top: 2vw;
     right: 2vw;
     display: flex;

@@ -45,15 +45,17 @@ a {
   flex-direction: column;
   /* border: 1px solid red; */
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: scroll;
   padding-top: 180px;
+  padding-bottom: 120px;
 }
 
 .container {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 3% 5% 3% 5%;
+  padding: 3% 4% 3% 4%;
   width: 100%;
   min-height: max-content;
   /* border: 1px solid green; */

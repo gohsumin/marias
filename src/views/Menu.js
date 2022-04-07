@@ -5,21 +5,21 @@ import Typist from 'react-typist';
 export default function Menu() {
 
   const toppings = [
-    { "Salsa": ["Hot", "Mild", "Verde"] },
     { "Lettuce": [] },
     { "Cheese": [] },
     { "Cilantro": [] },
     { "Onion": [] },
-    { "Jalapeños": [] },
-    { "Sour Cream": [] },
   ]
 
   const pricedToppings = [
-    { item: "Extra rice", price: "+$1.25" },
-    { item: "Extra beans", price: "+$1.25" },
-    { item: "Guacamole", price: "+$1.49" },
-    { item: "Queso", price: "+$1.50" },
-    { item: "Avocado slices", price: "+$0.99" }
+    { item: "Extra Rice", price: "+$1.75" },
+    { item: "Extra Beans", price: "+$1.75" },
+    { item: "Guacamole", price: "+$1.99" },
+    { item: "Queso", price: "+$2.25" },
+    { item: "Avocado Slices", price: "+$1.50" },
+    { item: "Salsa", price: "+$0.75", options: ["Hot", "Mild", "Verde"] },
+    { item: "Jalapeños", price: "+$0.50" },
+    { item: "Sour Cream", price: "+$0.75" },
   ]
 
   const menu = [
@@ -29,7 +29,7 @@ export default function Menu() {
         "Homemade flour tortillas",
         "Rice",
         "Black or refried beans",
-        "choice of protein",
+        "Choice of protein",
         "Toppings"],
       proteinOptions: [
         { option: "Grilled chicken", price: "$9.99" },
@@ -90,12 +90,6 @@ export default function Menu() {
           const key = Object.keys(topping)[0];
           return <div key={key} className="topping">
             {key}
-            {(topping[key].length > 0) &&
-              <div className="topping-array">
-                {topping[key].map((item) => {
-                  return <div key={item}>{item}</div>;
-                })}
-              </div>}
           </div>
         })}
       </div>
@@ -110,6 +104,12 @@ export default function Menu() {
             <div key={topping.item} className="priced-topping">
               <div className="topping">
                 {topping.item}
+                {topping.options &&
+                  <div className="topping-array">
+                    {topping.options.map((item) => {
+                      return <div key={item}>{item}</div>;
+                    })}
+                  </div>}
               </div>
               <div className="price">
                 {topping.price}
@@ -126,15 +126,26 @@ export default function Menu() {
         {menu.map((menuItem, menuItemIndex) => {
           return (
             <div key={menuItemIndex} className="menu-item">
-              <div className="menu-item-decor"/>
+              <div className="menu-item-decor" />
               <div className="menu-category">
                 {menuItem.category}
               </div>
-              <div className="menu-description">
-                {menuItem.madeOf && menuItem.madeOf.map((madeOf, madeOfIndex) => {
-                  return <div key={madeOfIndex}>{madeOf}</div>
+              {menuItem.madeOf && <div className="menu-description">
+                {(menuItem.madeOf.length > 0) && menuItem.madeOf.map((madeOf, madeOfIndex) => {
+                  return <div className="made-of" key={madeOfIndex} style={(((madeOfIndex + 1) === menuItem.madeOf.length) ? {
+                    borderRight: "none",
+                    paddingRight: "0px",
+                  } : {})}>
+                    {madeOf}
+                  </div>
                 })}
-              </div>
+              </div>}
+              {menuItem.proteinOptions.map((option, optionIndex) => {
+                return <div className="protein-group" key={optionIndex}>
+                  {option.option}
+                  {option.price}
+                </div>
+              })}
             </div>
           )
         })}

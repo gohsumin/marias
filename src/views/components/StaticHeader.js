@@ -35,8 +35,8 @@ export default function StaticHeader() {
 
     const logoStyle = useSpring({
         scale: init ? 0 : 1,
-        width: 110,
-        height: 110,
+        width: 120,
+        height: 120,
         alignSelf: "center",
         config: {
             easing: easings.easeInOutExpo,
